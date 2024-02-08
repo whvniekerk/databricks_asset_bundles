@@ -1,0 +1,12 @@
+# The main pipeline for decision_inc_asset_bundle_project
+resources:
+  pipelines:
+    decision_inc_asset_bundle_project_pipeline:
+      name: decision_inc_asset_bundle_project_pipeline
+      target: decision_inc_asset_bundle_project_${bundle.environment}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: /Workspace/${workspace.file_path}/src
